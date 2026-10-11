@@ -1,0 +1,4 @@
+dist/
+ios/build/
+ios/Generated/
+ios/*.xcodeproj/

@@ -1,0 +1,19 @@
+name: iOS app
+
+on:
+  push:
+    branches: [main]
+    paths: ["ios/**", ".github/workflows/ios.yml"]
+  workflow_dispatch:
+
+jobs:
+  ipa:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build PowerSwitch.ipa
+        run: bash ios/build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PowerSwitch-ipa
+          path: dist/PowerSwitch.ipa
